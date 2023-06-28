@@ -29,7 +29,7 @@ const Marketplace = () => {
     const theme = useTheme()
     const customization = useSelector((state) => state.customization)
 
-    const [isLoading, setLoading] = useState(true)
+    const [isLoading, setLoading] = useState(false)
     const [images, setImages] = useState({})
 
     const getAllMarketplacesApi = useApi(marketplacesApi.getAllMarketplaces)
@@ -75,10 +75,10 @@ const Marketplace = () => {
     return (
         <MainCard sx={{ background: customization.isDarkMode ? theme.palette.common.black : '' }}>
             <Stack flexDirection='row'>
-                <h1>定制模版</h1>
+                <h1>应用市场</h1>
             </Stack>
             <Grid container spacing={gridSpacing}>
-                {!isLoading &&
+                {isLoading &&
                     getAllMarketplacesApi.data &&
                     getAllMarketplacesApi.data.map((data, index) => (
                         <Grid key={index} item lg={3} md={4} sm={6} xs={12}>
@@ -86,14 +86,14 @@ const Marketplace = () => {
                         </Grid>
                     ))}
             </Grid>
-            {!isLoading && (!getAllMarketplacesApi.data || getAllMarketplacesApi.data.length === 0) && (
+            {
                 <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} flexDirection='column'>
                     <Box sx={{ p: 2, height: 'auto' }}>
                         <img style={{ objectFit: 'cover', height: '30vh', width: 'auto' }} src={WorkflowEmptySVG} alt='WorkflowEmptySVG' />
                     </Box>
-                    <div>No Marketplace Yet</div>
+                    <div>No Applications Yet</div>
                 </Stack>
-            )}
+            }
         </MainCard>
     )
 }

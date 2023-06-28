@@ -9,7 +9,7 @@ import { Avatar, Box, ButtonBase, Switch } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
 // project imports
-import LogoSection from '../LogoSection'
+// import LogoSection from '../LogoSection'
 import ProfileSection from './ProfileSection'
 
 // assets
@@ -21,9 +21,12 @@ import { SET_DARKMODE } from 'store/actions'
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
-    width: 62,
-    height: 34,
-    padding: 7,
+    // width: 62,
+    // height: 34,
+    // padding: 7,
+    width: 0,
+    height: 0,
+    padding: 0,
     '& .MuiSwitch-switchBase': {
         margin: 1,
         padding: 0,
@@ -102,7 +105,8 @@ const Header = ({ handleLeftDrawerToggle }) => {
                 }}
             >
                 <Box component='span' sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
-                    <LogoSection />
+                    {/* <LogoSection /> */}
+                    <h1>应用管理平台&nbsp;</h1>
                 </Box>
                 <ButtonBase sx={{ borderRadius: '12px', overflow: 'hidden' }}>
                     <Avatar

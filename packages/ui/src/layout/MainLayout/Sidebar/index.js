@@ -10,7 +10,7 @@ import { BrowserView, MobileView } from 'react-device-detect'
 
 // project imports
 import MenuList from './MenuList'
-import LogoSection from '../LogoSection'
+// import LogoSection from '../LogoSection'
 import { drawerWidth } from 'store/constant'
 
 // ==============================|| SIDEBAR DRAWER ||============================== //
@@ -23,7 +23,8 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
         <>
             <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                 <Box sx={{ display: 'flex', p: 2, mx: 'auto' }}>
-                    <LogoSection />
+                    {/* <LogoSection /> */}
+                    <h1>应用管理平台&nbsp;</h1>
                 </Box>
             </Box>
             <BrowserView>

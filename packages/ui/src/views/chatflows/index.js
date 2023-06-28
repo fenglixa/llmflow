@@ -103,8 +103,8 @@ const Chatflows = () => {
     return (
         <MainCard sx={{ background: customization.isDarkMode ? theme.palette.common.black : '' }}>
             <Stack flexDirection='row'>
-                <h1>Chatflows</h1>
-                <Grid sx={{ mb: 1.25 }} container direction='row'>
+                <h1>应用定制</h1>
+                <Grid sx={{ mb: 1.25 }} container direction='row' width={'80%'}>
                     <Box sx={{ flexGrow: 1 }} />
                     <Grid item>
                         <StyledButton variant='contained' sx={{ color: 'white' }} onClick={addNew} startIcon={<IconPlus />}>

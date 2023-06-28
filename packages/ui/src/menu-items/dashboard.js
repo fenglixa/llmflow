@@ -12,8 +12,16 @@ const dashboard = {
     type: 'group',
     children: [
         {
+            id: 'appmarket',
+            title: '应用市场',
+            type: 'item',
+            url: '/appmarket',
+            icon: icons.IconBuildingStore,
+            breadcrumbs: true
+        },
+        {
             id: 'chatflows',
-            title: 'Chatflows',
+            title: '应用定制',
             type: 'item',
             url: '/chatflows',
             icon: icons.IconHierarchy,
@@ -21,7 +29,7 @@ const dashboard = {
         },
         {
             id: 'marketplaces',
-            title: 'Marketplaces',
+            title: '定制模版',
             type: 'item',
             url: '/marketplaces',
             icon: icons.IconBuildingStore,
@@ -29,7 +37,7 @@ const dashboard = {
         },
         {
             id: 'tools',
-            title: 'Tools',
+            title: '工具定制',
             type: 'item',
             url: '/tools',
             icon: icons.IconTool,
@@ -37,7 +45,7 @@ const dashboard = {
         },
         {
             id: 'apikey',
-            title: 'API Keys',
+            title: '集成管理',
             type: 'item',
             url: '/apikey',
             icon: icons.IconKey,

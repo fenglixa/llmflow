@@ -171,7 +171,7 @@ const APIKey = () => {
         <>
             <MainCard sx={{ background: customization.isDarkMode ? theme.palette.common.black : '' }}>
                 <Stack flexDirection='row'>
-                    <h1>API Keys&nbsp;</h1>
+                    <h1>第三方集成&nbsp;</h1>
                     <Box sx={{ flexGrow: 1 }} />
 
                     <StyledButton variant='contained' sx={{ color: 'white', mr: 1, height: 37 }} onClick={addNew} startIcon={<IconPlus />}>
