@@ -60,7 +60,7 @@ const MarketplaceCanvasHeader = ({ flowName, flowData, onChatflowCopy }) => {
                     onClick={() => onChatflowCopy(flowData)}
                     startIcon={<IconCopy />}
                 >
-                    添加到我的应用
+                    Use Template
                 </StyledButton>
             </Box>
         </>

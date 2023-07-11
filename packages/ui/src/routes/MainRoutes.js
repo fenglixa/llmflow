@@ -7,6 +7,9 @@ import Loadable from 'ui-component/loading/Loadable'
 // marketplaces routing
 const Appmarket = Loadable(lazy(() => import('views/appmarket')))
 
+// myapp routing
+const Myapp = Loadable(lazy(() => import('views/myapp')))
+
 // chatflows routing
 const Chatflows = Loadable(lazy(() => import('views/chatflows')))
 
@@ -32,6 +35,10 @@ const MainRoutes = {
         {
             path: '/appmarket',
             element: <Appmarket />
+        },
+        {
+            path: '/myapp',
+            element: <Myapp />
         },
         {
             path: '/chatflows',

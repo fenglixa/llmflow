@@ -1,8 +1,8 @@
 // assets
-import { IconHierarchy, IconBuildingStore, IconKey, IconTool } from '@tabler/icons'
+import { IconHierarchy, IconBuildingStore, IconKey, IconTool, IconBuildingFactory2, IconBabyCarriage } from '@tabler/icons'
 
 // constant
-const icons = { IconHierarchy, IconBuildingStore, IconKey, IconTool }
+const icons = { IconHierarchy, IconBuildingStore, IconKey, IconTool, IconBuildingFactory2, IconBabyCarriage }
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
@@ -20,6 +20,14 @@ const dashboard = {
             breadcrumbs: true
         },
         {
+            id: 'myapp',
+            title: '我的应用',
+            type: 'item',
+            url: '/myapp',
+            icon: icons.IconBabyCarriage,
+            breadcrumbs: true
+        },
+        {
             id: 'chatflows',
             title: '应用定制',
             type: 'item',
@@ -32,7 +40,7 @@ const dashboard = {
             title: '定制模版',
             type: 'item',
             url: '/marketplaces',
-            icon: icons.IconBuildingStore,
+            icon: icons.IconBuildingFactory2,
             breadcrumbs: true
         },
         {

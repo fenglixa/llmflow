@@ -13,7 +13,7 @@ import { gridSpacing } from 'store/constant'
 import WorkflowEmptySVG from 'assets/images/workflow_empty.svg'
 
 // API
-import appmarketApi from 'api/appmarket'
+import marketplacesApi from 'api/marketplaces'
 
 // Hooks
 import useApi from 'hooks/useApi'
@@ -21,9 +21,9 @@ import useApi from 'hooks/useApi'
 // const
 import { baseURL } from 'store/constant'
 
-// ==============================|| Appmarket ||============================== //
+// ==============================|| Marketplace ||============================== //
 
-const Appmarket = () => {
+const Marketplace = () => {
     const navigate = useNavigate()
 
     const theme = useTheme()
@@ -32,27 +32,26 @@ const Appmarket = () => {
     const [isLoading, setLoading] = useState(false)
     const [images, setImages] = useState({})
 
-    const getAllAppmarketApi = useApi(appmarketApi.getAllAppmarket)
+    const getAllMarketplacesApi = useApi(marketplacesApi.getAllMarketplaces)
 
     const goToCanvas = (selectedChatflow) => {
-        navigate(`/appmarket/${selectedChatflow.id}`, { state: selectedChatflow })
+        navigate(`/marketplace/${selectedChatflow.id}`, { state: selectedChatflow })
     }
 
     useEffect(() => {
-        getAllAppmarketApi.request()
+        getAllMarketplacesApi.request()
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
-        setLoading(getAllAppmarketApi.loading)
-    }, [getAllAppmarketApi.loading])
+        setLoading(getAllMarketplacesApi.loading)
+    }, [getAllMarketplacesApi.loading])
 
     useEffect(() => {
-        // console.log(getAllAppmarketApi)
-        if (getAllAppmarketApi.data) {
+        if (getAllMarketplacesApi.data) {
             try {
-                const chatflows = getAllAppmarketApi.data
+                const chatflows = getAllMarketplacesApi.data
                 const images = {}
                 for (let i = 0; i < chatflows.length; i += 1) {
                     const flowDataStr = chatflows[i].flowData
@@ -71,32 +70,32 @@ const Appmarket = () => {
                 console.error(e)
             }
         }
-    }, [getAllAppmarketApi.data])
+    }, [getAllMarketplacesApi.data])
 
     return (
         <MainCard sx={{ background: customization.isDarkMode ? theme.palette.common.black : '' }}>
             <Stack flexDirection='row'>
-                <h1>应用市场</h1>
+                <h1>我的应用</h1>
             </Stack>
             <Grid container spacing={gridSpacing}>
-                {!isLoading &&
-                    getAllAppmarketApi.data &&
-                    getAllAppmarketApi.data.map((data, index) => (
+                {isLoading &&
+                    getAllMarketplacesApi.data &&
+                    getAllMarketplacesApi.data.map((data, index) => (
                         <Grid key={index} item lg={3} md={4} sm={6} xs={12}>
                             <ItemCard onClick={() => goToCanvas(data)} data={data} images={images[data.id]} />
                         </Grid>
                     ))}
             </Grid>
-            {!isLoading && (!getAllAppmarketApi.data || getAllAppmarketApi.data.length === 0) && (
+            {
                 <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} flexDirection='column'>
                     <Box sx={{ p: 2, height: 'auto' }}>
                         <img style={{ objectFit: 'cover', height: '30vh', width: 'auto' }} src={WorkflowEmptySVG} alt='WorkflowEmptySVG' />
                     </Box>
                     <div>No Applications Yet</div>
                 </Stack>
-            )}
+            }
         </MainCard>
     )
 }
 
-export default Appmarket
+export default Marketplace

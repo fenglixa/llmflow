@@ -444,6 +444,32 @@ export class App {
             return res.json(templates)
         })
 
+
+        // ----------------------------------------
+        // Appmarket
+        // ----------------------------------------
+
+        // Get all Appmarket
+        this.app.get('/api/v1/appmarket', async (req: Request, res: Response) => {
+            const appmarketDir = path.join(__dirname, '..', 'appmarket')
+            const jsonsInDir = fs.readdirSync(appmarketDir).filter((file) => path.extname(file) === '.json')
+            const templates: any[] = []
+            jsonsInDir.forEach((file, index) => {
+                const filePath = path.join(__dirname, '..', 'appmarket', file)
+                const fileData = fs.readFileSync(filePath)
+                const fileDataObj = JSON.parse(fileData.toString())
+                const template = {
+                    id: index,
+                    name: file.split('.json')[0],
+                    flowData: fileData.toString(),
+                    description: fileDataObj?.description || ''
+                }
+                templates.push(template)
+            })
+            return res.json(templates)
+        })
+
+
         // ----------------------------------------
         // API Keys
         // ----------------------------------------
@@ -771,7 +797,7 @@ let serverApp: App | undefined
 export async function start(): Promise<void> {
     serverApp = new App()
 
-    const port = parseInt(process.env.PORT || '', 10) || 3001
+    const port = parseInt(process.env.PORT || '', 10) || 3000
     const server = http.createServer(serverApp.app)
 
     const io = new Server(server, {

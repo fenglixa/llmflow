@@ -60,9 +60,12 @@ const AboutDialog = ({ show, onCancel }) => {
                             <TableBody>
                                 <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                     <TableCell component='th' scope='row'>
-                                        <a target='_blank' rel='noreferrer' href={data.html_url}>
-                                            {data.name}
+                                        <a target='_blank' rel='noreferrer' href='https://github.com/fenglixa/llmflow'>
+                                            llmflow1.0
                                         </a>
+                                        {/* <a target='_blank' rel='noreferrer' href={data.html_url}>
+                                            {data.name}
+                                        </a> */}
                                     </TableCell>
                                     <TableCell>{moment(data.published_at).fromNow()}</TableCell>
                                 </TableRow>
