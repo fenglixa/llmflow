@@ -15,25 +15,21 @@ class Gradio_Tools implements INode {
     inputs: INodeParams[]
 
     constructor() {
-        this.label = 'Gradio Tool'
+        this.label = 'Gradio UI'
         this.name = 'Gradio'
         this.type = 'WebBrowser'
         this.icon = 'Gradio.png'
-        this.category = 'Tools'
+        this.category = 'AppUI'
         this.description = 'Provide the application UI with Gradio'
+        this.baseClasses = ['string']
         this.inputs = [
             {
-                label: 'Language Model',
-                name: 'model',
-                type: 'BaseLanguageModel'
-            },
-            {
-                label: 'Embeddings',
-                name: 'embeddings',
-                type: 'Embeddings'
+                label: 'Chain',
+                name: 'chain',
+                type: 'LLMChain'
             }
+
         ]
-        this.baseClasses = [this.type, ...getBaseClasses(WebBrowser)]
     }
 
     async init(nodeData: INodeData): Promise<any> {
