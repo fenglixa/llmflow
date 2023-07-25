@@ -3,9 +3,8 @@ kind: ConfigMap
 metadata:
   name: starchain-ui
 data:
-  PORT=3000
-  FLOWISE_USERNAME=demo
-  FLOWISE_PASSWORD=demo
-  DATABASE_PATH=.flowise
-  EXECUTION_MODE=main
-  DEBUG=true
+ .env: |
+    PORT=3000
+    FLOWISE_USERNAME=demo
+    FLOWISE_PASSWORD=demo
+    DEBUG=true

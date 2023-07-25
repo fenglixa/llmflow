@@ -21,6 +21,13 @@ spec:
           ports:
             - containerPort: 3000
               protocol: TCP
-          envFrom:
-            - configMapRef:
-                name: starchain-ui
+          volumeMounts:
+          - name: config-volume
+            mountPath: /usr/src/packages/packages/server/.env
+            subPath: .env
+      volumes:
+        - name: config-volume
+          configMap:
+            name: starchain-ui
+
+            
